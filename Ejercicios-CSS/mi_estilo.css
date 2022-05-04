@@ -1,0 +1,23 @@
+<style>
+body{
+    text-align: center;
+    font-family: 'Gugi', cursive;
+    backgorund: lineal-gradient(to right, #57baff, #456)
+}
+div{
+    border: 2px solid #1f1bff;
+    margin: 10px;
+    padding: 5px 30px;
+    border-radius:15px;
+    box-shadow: 1opx 12px #999;
+}
+#principal{
+    width: 50px;
+    float: left;
+    border-radius:50%;
+}
+div h3{
+    font-family: 'Libre Bodoni', serif;
+    text-shadow: 10px 5px #999;
+}
+</style>
