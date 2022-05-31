@@ -30,3 +30,15 @@ function cambiarUnidades(id, value){
         document.lasUnidades.unid_yarda.value=0.333*value;
     }
 }
+function convertirGR(id){
+    var grad, rad;
+    if (id=="grados"){
+        grad=document.getElementById ( elementId: "grados").value
+        rad=(grad*Math.PI)/180;
+    }else if (id=="radianes"){
+        rad=document.getElementById(elementId: "radianes").value;
+        grad=(rad*180)/Math.PI;
+    }
+    document.getElementById(elementId: "grados").value=grad;
+    document.getElementById(elementId: "radianes").value=rad;
+}
