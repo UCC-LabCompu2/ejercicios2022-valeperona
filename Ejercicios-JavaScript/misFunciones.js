@@ -33,12 +33,19 @@ function cambiarUnidades(id, value){
 function convertirGR(id){
     var grad, rad;
     if (id=="grados"){
-        grad=document.getElementById ( elementId: "grados").value
+        grad=document.getElementById ("grados").value
         rad=(grad*Math.PI)/180;
     }else if (id=="radianes"){
-        rad=document.getElementById(elementId: "radianes").value;
+        rad=document.getElementById("radianes").value;
         grad=(rad*180)/Math.PI;
     }
-    document.getElementById(elementId: "grados").value=grad;
-    document.getElementById(elementId: "radianes").value=rad;
+    document.getElementById("grados").value=grad;
+    document.getElementById("radianes").value=rad;
+}
+function mostrar_ocultar(valorMO) {
+    if(valorMO=="val_mostrar"){
+        document.getElementById("divMO").style.display='block'
+    }else if (valorMO=="val_ocultar"){
+        document.getElementById("divMO").style.display='none'
+    }
 }
