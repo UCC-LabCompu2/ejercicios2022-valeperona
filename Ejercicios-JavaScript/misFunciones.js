@@ -104,3 +104,134 @@ function cargarResultado(){
 
 
 }
+
+function guardarLocalStorage(){
+    let distancia, unidad;
+    distancia=document.getElementById('distancia').value;
+    unidad=document.getElementsByName('unidades')[0].value;
+    localStorage.setItem("distanciaLs", distancia);
+    localStorage.setItem("unidadesLs", unidad);
+    window.open('2_web.html');
+}
+
+function cargarLocalStorage(){
+   let cant, un;
+   cant=localStorage.getItem('distanciaLs');
+   un=localStorage.getItem('unidadesLs');
+
+   document.getElementById("dist").value=cant+" " +un;
+
+}
+
+function dibujarCirCuad(){
+    var canvas=document.getElementById("myCanvas");
+    var ctx=canvas.getContext("2d");
+    var xMax=canvas.width;
+    var yMax=canvas.height;
+    var margen=5;
+    ctx.fillStyle="#333899";
+    ctx.fillRect(0+margen, yMax=0-margen, 40, 40);
+    ctx.arc(xMax/2, yMax/2, 20,0, 2*Math.PI );
+    ctx.stroke();
+    ctx,fill();
+}
+
+function dibujar(event){
+    var canvas=document.getElementById("canvasAdibujar");
+    var ctx=canvas.getContext("2d");
+
+    var posX=evento.clientX;
+    var posY=event.clientY;
+    console.log(posX, posY);
+
+    canvas.onmousedown=function()(bandera=true);
+    canvas.onmouseup=function()(bandera=false);
+
+    if(bandera){
+        ctx.fillRect (posX, posY, 5, 5);
+        ctx.fill;
+    }
+
+}
+
+function limpiarCanvas(){
+    var canvas=document.getElementById("canvasAdibujar");
+    var ctx=canvas.getContext("2d");
+
+    canvas.width=canvas.width;
+}
+
+function dibujarCuadriculado(){
+    var canvas=document.getElementById("myCanvas");
+    var ctx=canvas.getContext("2d");
+    var alturaMax=canvas.height;
+    var anchoMax=canvas.width;
+
+    ctx.beginPath();
+    for(var i=0; i<alturaMax;) {
+        ctx.moveTo(0, i);
+        ctx.lineTo(anchoMax, i);
+        ctx.strokeStyle = "#d9D8D8";
+        ctx.stroke();
+        i=i+20;
+    }
+    ctx.closePath();
+
+    ctx.beginPath();
+    for(var i=0; i<anchoMax;) {
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, alturaMax);
+        ctx.strokeStyle = "#D9D8D8";
+        ctx.stroke();
+        i=i+20;
+    }
+    ctx.closePath();
+
+    ctx.beginPath();
+        ctx.moveTo(0, alturaMax/2);
+        ctx.lineTo(anchoMax, alturaMax/2);
+        ctx.strokeStyle = "#D9D8c100";
+        ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(anchoMax/2, 0);
+    ctx.lineTo(anchoMax/2, alturaMax);
+    ctx.strokeStyle = "#D9D8c100";
+    ctx.stroke();
+    ctx.closePath();
+}
+
+function dibujarImagen(posX, posY){
+    var canvas=document.getElementById("myCanvas");
+    var ctx=canvas.getContext("2d");
+    canvas.width=canvas.width;
+    console.log(posX, posY);
+    var img=new Image();
+    img.src="images/auto.png";
+
+
+    img.onload=function() {
+        ctx.drawImage(img, posX, posY);
+    }
+}
+x=0:
+dx=2;
+function animarAuto(){
+    var canvas=document.getElementById("myCanvas");
+    var ctx=canvas.getContext("2d");
+
+    canvas.width=canvas.width;
+
+    console.log(posX, posY);
+    var img=new Image();
+    img.src="images/auto.png";
+
+    img.onload=function() {
+        ctx.drawImage(img, posX, 100);
+    }
+    if (x>canvas.width){
+        x=0;
+    }
+    x+=dx;
+}
